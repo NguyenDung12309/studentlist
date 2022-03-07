@@ -1,0 +1,32 @@
+<a [routerLink]="['/student/create']">create student</a>
+<form action="" [formGroup]="searchForm" (ngSubmit)="searchStudent()" >
+    <label for="">ID</label>
+    <input type="text" name="id" formControlName="id">
+    <button type="submit">Tìm</button>
+</form>
+<table border="1">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Date of birth</td>
+        <td>Point</td>
+        <td>Rank</td>
+        <td>Detail</td>
+        <td>Update</td>
+        <td>Delete</td>
+    </tr>
+    <tr *ngFor="let student of studentList">
+        <td>{{student.id}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.dateOfBirth | date: "yyyy-MM-dd"}}</td>
+        <td>{{student.point}}</td>
+        <td *ngIf="student.point >= 9">Giỏi</td>
+        <td *ngIf="student.point < 9">Khá</td>
+        <td (click)="detailStudent(student)">Detail</td>
+        <td (click)="updateStudent(student)">Update</td>
+        <td (click)="deleteStudent(student)">Delete</td>
+    </tr>
+</table>
+<!-- <app-student-info></app-student-info> -->
+<!-- <app-student-info [student] = "student"></app-student-info> -->
+<!-- <app-student-create (submitCreate) = "createStudent($event)"></app-student-create> -->

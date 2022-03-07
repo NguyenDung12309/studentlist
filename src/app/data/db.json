@@ -1,0 +1,16 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "sss",
+      "dateOfBirth": "2022-03-12",
+      "point": 323
+    },
+    {
+      "id": "3232",
+      "name": "111",
+      "dateOfBirth": "2022-03-03",
+      "point": 5
+    }
+  ]
+}

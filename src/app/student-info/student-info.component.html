@@ -1,0 +1,11 @@
+<!-- interpolation -->
+
+    <p>{{student.id}}</p>
+    <p>{{student.name}}</p>
+
+    <!-- property binding -->
+    <input type="text" [value]="student.name"  (change) = "changeNameStudent($event)">
+
+    <!-- two way binding -->
+    <input type="text" [(ngModel)]="student.name">
+

@@ -1,0 +1,29 @@
+<!-- <form action="" #registerForm="ngForm" (ngSubmit)="createStudent(registerForm)">
+    <label for="">ID</label>
+    <input type="text" name="id" ngModel required><br>
+    <label for="" >Name</label>
+    <input type="text" name="name" ngModel ><br>
+    <label for="" >Date of birth</label>
+    <input type="date" name="dateOfBirth" ngModel><br>
+    <label for="" >Point</label>
+    <input type="number" name="point" ngModel><br>
+    <button type="submit">thêm mới</button>
+</form> -->
+
+<form action="" [formGroup]="studentForm" (ngSubmit)="createStudent()" >
+    <label for="">ID</label>
+    <input type="text" name="id" formControlName="id"><br>
+    <div style="color: red" *ngIf="studentForm.controls.id.hasError('required') && studentForm.get('id').dirty">
+        id không được để trống
+    </div>
+    <label for="" >Name</label>
+    <input type="text" name="name" formControlName="name"><br>
+    <label for="" >Date of birth</label>
+    <input type="date" name="dateOfBirth" formControlName="dateOfBirth"><br>
+    <label for="" >Point</label>
+    <input type="number" name="point" formControlName="point"><br>
+    <div style="color: red" *ngIf="studentForm.controls.point.hasError('invalid0') && studentForm.get('point').dirty">
+        point không được nhỏ hơn không
+    </div>
+    <button type="submit">thêm mới</button>
+</form>
